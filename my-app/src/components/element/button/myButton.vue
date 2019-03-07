@@ -15,7 +15,6 @@ export default {
 
 <style lang="scss" scoped>
 button {
-  margin-top: 10px;
   border: none;
   outline: none;
   background: #666;

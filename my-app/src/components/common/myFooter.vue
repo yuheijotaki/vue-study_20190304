@@ -1,7 +1,7 @@
 <template>
-    <footer>
-      <p>&copy; Copyright</p>
-    </footer>
+  <footer>
+    <p>&copy; works.yuheijotaki.com</p>
+  </footer>
 </template>
 
 <script>

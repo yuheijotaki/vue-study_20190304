@@ -54,5 +54,8 @@ h1,h2,h3,h4,h5,h6 {
     font-size: 13px;
     line-height: 1.6;
   }
+  section {
+    margin-top: 40px;
+  }
 }
 </style>
