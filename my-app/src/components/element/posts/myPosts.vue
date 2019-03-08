@@ -5,6 +5,7 @@
         <a href="javascript:void(0);" @click="filterCategory" :data-category="category.name" :class="['naviLink' , { 'is-selected': category.selected }]">{{category.name}}</a>
       </li>
     </ul>
+    <p v-show="loading" class="loading">loading...</p>
     <ul class="post_list">
       <li v-for="(post,index) in posts" :key="index" v-show="post.customData.display">
         <a :href="post.acf.post_url" target="_blank">
@@ -50,18 +51,20 @@ export default {
           selected: false
         }
       ],
-      posts: []
+      posts: [],
+      loading: false
     }
   },
   created: function(){
+    this.loading = true; // loading を表示する
     this.request();
   },
   methods: {
     request: function(){
       axios.get( 'https://works.yuheijotaki.com/wp-json/wp/v2/posts?per_page=100' )
       .then( response => {
+        this.loading = false; // loading を非表示にする
         this.posts = response.data;
-        // console.log(this.posts);
       })
       .catch( error => {
         console.log(error);
@@ -124,6 +127,9 @@ export default {
     }
   }
 }
+.loading {
+  margin-top: 40px;
+}
 .post_list {
   margin-top: 40px;
   list-style: none;
@@ -179,4 +185,20 @@ export default {
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+.post_list {
+  li {
+    width: 33.333334%;
+    a {
+      &:hover {
+        .wrap {
+          display: none;
+        }
+      }
+    }
+  }
+}
+} /* - 768px */
+
 </style>

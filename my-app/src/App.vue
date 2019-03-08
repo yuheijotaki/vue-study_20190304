@@ -2,7 +2,6 @@
   <div id="app">
     <myHeader></myHeader>
     <main>
-      <myButton @event-test="clickAlert"></myButton>
       <router-view></router-view>
     </main>
     <myFooter></myFooter>
@@ -13,19 +12,12 @@
 import "normalize.css";
 import myHeader from './components/common/myHeader.vue';
 import myFooter from './components/common/myFooter.vue';
-import myButton from './components/element/button/myButton.vue';
 
 export default {
   name: 'App',
   components: {
     myHeader,
-    myFooter,
-    myButton
-  },
-  methods: {
-    clickAlert: function(event) {
-      alert('event test');
-    }
+    myFooter
   }
 }
 </script>
@@ -48,6 +40,7 @@ h1,h2,h3,h4,h5,h6 {
   font-feature-settings : "palt";
   max-width: 800px;
   margin: 40px auto;
+  padding: 0 20px;
   letter-spacing: .01em;
   main {
     margin-top: 40px;

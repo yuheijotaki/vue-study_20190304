@@ -3,7 +3,7 @@
 ## やること
 
 - WordPress で運用している [ポートフォリオサイト](https://works.yuheijotaki.com) と同様の機能を持ったサイトを Vue.js で実装する。
-- 
+- Vue Router を使用して History モードでページ遷移を行う。
 
 #### HTML5 History モード
 
@@ -29,19 +29,27 @@ export default new Router({
 })
 ```
 
-#### `props` や `$emit`
+#### vue-router 使用時の現在地ナビ（カレント表示）
 
+現在いるページのナビゲーション `<a>` 要素にはデフォルトで `.router-link-exact-active` というクラスが付与されるが、それを変更したい場合
 
+```html
+<ul>
+  <li><router-link to="/" exact-active-class="is-selected">Top</router-link></li>
+  <li><router-link to="/about" exact-active-class="is-selected">About</router-link></li>
+</ul>
+```
+
+のように `exact-active-class="is-selected"` としてあげる
+
+参考：[API Reference \| Vue Router](https://router.vuejs.org/api/#event)  
+参考：[Vuejs vue\-routerはアクティブなリンクに自動でクラスを振ってくれる \- Qiita](https://qiita.com/kimullaa/items/a75a47f504c75058081f)
 
 ## まとめ
 
-カテゴリー選択した際のフィルターは、配列取得してfor文でマッチする投稿を出し分けしていますが、`filter` などを使えばもっとスマートに書けそう。
+[**Github**](https://github.com/yuheijotaki/vue-study_20190304)
 
+- カテゴリー選択した際のフィルターは、配列取得してfor文でマッチする投稿を出し分けしていますが、`filter` などを使えばもっとスマートに書けそう。
 
-
-
-
-### 残り
-
-- `router` の `/top/`  `/about/` 遷移時にナビをアクティブにする
-- 投稿読み込み時ローディング
+- 各投稿をカテゴリーごとに出力する箇所、結局 `$emit` や `props` を使わずに カテゴリー一覧と投稿出力のコンポーネントを分けるのは断念した。そもそもできるものなのかも不明ですが、このあたりも自由にできたら楽しいだろうなと思う。
+- やっとサイトっぽくなったのはよかったかなと思います。

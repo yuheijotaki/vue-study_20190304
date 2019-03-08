@@ -15,15 +15,16 @@ export default {
 
 <style lang="scss" scoped>
 button {
+  margin-top: 20px;
   border: none;
   outline: none;
-  background: #666;
+  background: #777;
   color: #fff;
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1;
   font-weight: bold;
   display: inline-block;
-  padding: 5px 8px;
+  padding: 6px 8px;
   border-radius: 2px;
   &:hover {
     cursor: pointer;

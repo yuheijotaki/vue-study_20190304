@@ -2,8 +2,8 @@
   <header>
     <nav>
       <ul>
-        <li><router-link to="/">Top</router-link></li>
-        <li><router-link to="/about">About</router-link></li>
+        <li><router-link to="/" exact-active-class="is-selected">Top</router-link></li>
+        <li><router-link to="/about" exact-active-class="is-selected">About</router-link></li>
       </ul>
     </nav>
   </header>
@@ -13,7 +13,7 @@
 import axios from "axios";
 
 export default {
-  name: 'myHeader',
+  name: 'myHeader'
 }
 </script>
 
